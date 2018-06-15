@@ -1,4 +1,11 @@
 <?php
+/**
+ * Author: Conor O'Mahony
+ * Assignment: MVC Application Frameworks - Assessment 1 - CodeIgniter MVC Web Service
+ * Student ID: STU-00001490 
+ * Date: 2018/06/15
+ */
+
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
@@ -15,8 +22,9 @@ class Launch extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        // load HTML helper for use in the launch view
+        // load helpers for use in the launch view
         $this->load->helper('html');
+        $this->load->helper('url');
     }
 
     public function index()

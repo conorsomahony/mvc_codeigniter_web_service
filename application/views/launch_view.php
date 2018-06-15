@@ -1,18 +1,71 @@
+<!--
+* Author: Conor O'Mahony
+* Assignment: MVC Application Frameworks - Assessment 1 - CodeIgniter MVC Web Service
+* Student ID: STU-00001490 
+* Date: 2018/06/15
+* Refs: 
+-->
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 echo doctype('html5');
 ?>
 <html>
-<head>	
+
+<head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Web Service Launch Page</title>
-<?php echo link_tag('css/mystyles.css');?>
+	<?php echo link_tag('css/mustard-ui.min.css');?>
 </head>
+
 <body>
-<?php
-echo heading('Web Service Launch Page', 1);
-?>
+<section class="section-primary">
+	<div class="container container-small">
+		<?php echo heading('MVC Application Frameworks', 1); ?>
+		<?php echo heading('Assessment 1', 2); ?>
+		<?php echo heading('CodeIgniter MVC Web Service', 3); ?>
+	</div>
+</section>
+
+<section class="section-secondary">
+	<div class="container container-small">
+		<?php echo heading('Web Service Launch', 3); ?>
+		<div class="panel">
+			<div class="panel-head">
+				<p class="panel-title">API Endpoint 1</p>
+			</div>
+			<div class="panel-body">
+				<p>Launch API Endpoint 1</p>
+			</div>
+			<div class="panel-footer">
+				<form action="#" method="get">
+					<input type="submit" class="button-primary" value="Launch">
+				</form>
+			</div>
+		</div>
+		<div class="panel">
+			<div class="panel-head">
+				<p class="panel-title">API Endpoint 2</p>
+			</div>
+			<div class="panel-body">
+				<p>Launch API Endpoint 2</p>
+			</div>
+			<div class="panel-footer">
+				<form action="#" method="get">
+					<input type="submit" class="button-primary" value="Launch">
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<footer>
+	<div class="footer-text">
+		<p class="align-center">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo (ENVIRONMENT === 'development') ? 'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
+	</div>
+</footer>
+
 </body>
+
 </html>
