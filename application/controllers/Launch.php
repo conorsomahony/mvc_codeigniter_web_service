@@ -15,7 +15,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  * @author Conor O'Mahony
  */
-
 class Launch extends CI_Controller
 {
 
@@ -25,6 +24,7 @@ class Launch extends CI_Controller
         // load helpers for use in the launch view
         $this->load->helper('html');
         $this->load->helper('url');
+        $this->load->helper('form');
     }
 
     public function index()

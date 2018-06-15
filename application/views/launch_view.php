@@ -16,21 +16,22 @@ echo doctype('html5');
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Web Service Launch Page</title>
-	<?php echo link_tag('css/mustard-ui.min.css');?>
+	<?= link_tag('css/mustard-ui.min.css');?>
 </head>
 
 <body>
 <section class="section-primary">
 	<div class="container container-small">
-		<?php echo heading('MVC Application Frameworks', 1); ?>
-		<?php echo heading('Assessment 1', 2); ?>
-		<?php echo heading('CodeIgniter MVC Web Service', 3); ?>
+		<!-- using CI html helper -->
+		<?= heading('MVC Application Frameworks', 1); ?>
+		<?= heading('Assessment 1', 2); ?>
+		<?= heading('CodeIgniter MVC Web Service', 3); ?>
 	</div>
 </section>
 
 <section class="section-secondary">
 	<div class="container container-small">
-		<?php echo heading('Web Service Launch', 3); ?>
+		<?= heading('Web Service Launch', 3); ?>
 		<div class="panel">
 			<div class="panel-head">
 				<p class="panel-title">API Endpoint 1</p>
@@ -39,7 +40,8 @@ echo doctype('html5');
 				<p>Launch API Endpoint 1</p>
 			</div>
 			<div class="panel-footer">
-				<form action="#" method="get">
+				<!-- using CI form helper -->
+				<?= form_open('/AnimalWebService/testEndPoint1', array('method' => 'get')) ?>
 					<input type="submit" class="button-primary" value="Launch">
 				</form>
 			</div>
@@ -52,7 +54,8 @@ echo doctype('html5');
 				<p>Launch API Endpoint 2</p>
 			</div>
 			<div class="panel-footer">
-				<form action="#" method="get">
+				<!-- using CI form helper -->
+				<?= form_open('/AnimalWebService/testEndPoint2', array('method' => 'get')) ?>
 					<input type="submit" class="button-primary" value="Launch">
 				</form>
 			</div>
