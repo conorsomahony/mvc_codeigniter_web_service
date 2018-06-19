@@ -133,11 +133,12 @@ echo '<option value="' . $country . '">' . $country . '</option>';
 
 		<!-- section - additional information -->
 		<section>
-			<?=heading('Additional Information', 3, 'class="mb1"');?>
+			<?=heading('Additional Information and References', 3, 'class="mb1"');?>
 			<ul>
 				<li>Download SQL setup file
-					<a href='<?= base_url("data/animals.sql")?>'> here</a>
+					<a href='<?= base_url("data/animals.sql")?>'> here.</a>
 				</li>
+				<li>CSS style framework is lit.css - see <a href="https://ajusa.github.io/lit/docs/lit.html">here.</a></li>
 			</ul>
 		</section>
 		<!-- end-of section - additional information -->
