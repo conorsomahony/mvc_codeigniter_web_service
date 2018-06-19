@@ -35,7 +35,8 @@ echo doctype('html5');
 	<header class="tc white bg-accent">
 		<div class="c">
 			<!-- using CI html helper -->
-			<?=heading('MVC Application Frameworks', 1, 'class="mega"');?>
+			<?=heading('MVC Application Frameworks', 1, 'class="mega mb0"');?>
+			<?=heading('Assessment 1 - CodeIgniter MVC Web Service', 4, 'class="mb1"'); ?>		
 		</div>
 	</header>
 	<!-- end-of header -->
@@ -46,8 +47,7 @@ echo doctype('html5');
 		<!-- section - assessment description  -->
 		<section>
 			<!-- use CI html helper-->
-			<?=heading('Assessment 1 - CodeIgniter MVC Web Service', 2, 'class="mb1"');?>
-			<?=heading('Description/Brief', 4, 'class="mb1"');?>
+			<?=heading('Description/Brief', 2, 'class="mb1"');?>
 			<ul>
 				<li>This is a web service built in PHP using the CodeIgniter framework.</li>
 				<li>The service provides two(+) API endpoints.</li>
