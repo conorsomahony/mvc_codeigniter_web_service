@@ -1,5 +1,7 @@
+-- Create the database
 CREATE DATABASE adopt_an_animal; 
 USE adopt_an_animal;
+-- Create the animals table - 'id' is autoincrement primary key
 CREATE TABLE animals(
     `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `breed` VARCHAR(17) CHARACTER SET utf8,
@@ -15,7 +17,9 @@ CREATE TABLE animals(
     `adopted` VARCHAR(5) CHARACTER SET utf8,
     `breeding_frequency` VARCHAR(7) CHARACTER SET utf8,
     `another_frequency` VARCHAR(7) CHARACTER SET utf8
-); INSERT INTO animals(
+); 
+-- Insert 50 rows
+INSERT INTO animals(
     breed,
     avatar,
     NAME,
