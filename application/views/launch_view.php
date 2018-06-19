@@ -45,7 +45,7 @@ echo doctype('html5');
 					<ul>
 						<li>This is a web service built in PHP using the CodeIgniter framework.</li>
 						<li>The service provides two(+) API endpoints.</li>
-						<li>Each endpoint creates a HTTP GET request to query a MySQL database and return some data in JSON format.</li>
+						<li>Each endpoint creates a HTTP GET request to execute a MySQL query on a database and return some data in JSON format.</li>
 						<li>In this case, the returned data can be consumed by the <strong><a href="https://www.conorsomahony.net/sites/adopt-an-animal/" target="_blank">Adopt-an-Animal</a></strong> mobile web application.</li>
 						<li>The data describes animals and includes information such as animal name, breed, country of origin, etc.
 					</ul>
@@ -58,6 +58,7 @@ echo doctype('html5');
 					<h4>API Endpoint 1 - Get all Animal Data</h4>
 					<ul>
 						<li>Make a request to the web service to return all Animal data in JSON format.</li>
+						<li>SQL query <code class="error">&gt; SELECT * FROM animals</code></li>
 					</ul>
 					<!-- using CI form helper - specify method as HTTP GET -->
 					<?=form_open('/AnimalWebService/getAllAnimalData', array('method' => 'get'))?>
@@ -70,7 +71,8 @@ echo doctype('html5');
 						<li>Enter a search term to make a request to the web service to return all animal data, for animals matching the search term, in JSON format.</li>
 						<li>Searches animal data using the
 							<i>name</i> and
-							<i>breed</i> columns, using SQL "LIKE" query.</li>
+							<i>breed</i> columns</li>
+						<li>SQL query <code class="error">&gt; SELECT * FROM `animals` WHERE `breed` LIKE '%searchTerm%' OR `name` LIKE '%searchTerm%'</code></li>
 					</ul>
 					<!-- using CI form helper - specify method as HTTP GET -->
 					<?=form_open('/AnimalWebService/getMatchingAnimals', array('method' => 'get'))?>
@@ -87,7 +89,8 @@ echo doctype('html5');
 					<ul>
 						<li>Select a country to make a request to the web service to get animal <i>name</i> and <i>breed</i> data, in JSON format, for all animals from
 							that country.</li>
-						<li>(Here, we already have a distinct list of countries, obtained via another API endpoint, which is used to populate the dropdown box.)</li>
+						<li>SQL query <code class="error">&gt; SELECT `name`, `breed`, `country` FROM `animals` WHERE `country` = 'country'</code></li>
+						<li>We use a distinct list of countries to populate the dropdown box (obtained via another API endpoint!)</li>
 					</ul>
 					<!-- using CI form helper - specify method as HTTP GET -->
 					<?=form_open('/AnimalWebService/getByCountry', array('method' => 'get'))?>
@@ -108,7 +111,7 @@ foreach ($countries as $country) {
 		<section>
 			<?=heading('Additional Information', 3, 'class="mb1"');?>
 				<ul>
-					<li>Download SQL data import file <a href='<?= base_url("data/animals.sql")?>'> here</a> (or view as text <a href='<?= base_url("data/animals.sql.txt") ?>'>here</a>)</li>
+					<li>Download SQL setup file <a href='<?= base_url("data/animals.sql")?>'> here</a></li>
 				</ul>
 		</section>
 	</main>

@@ -36,7 +36,9 @@ class AnimalWebService extends CI_Controller
     public function getAllAnimalData()
     {
         // query the model and encode the response as JSON
-        echo json_encode($this->AnimalModel->getAllAnimalData());
+        $result = json_encode($this->AnimalModel->getAllAnimalData());
+        echo $result;
+        return $result;
     }
 
     /**
@@ -47,9 +49,11 @@ class AnimalWebService extends CI_Controller
     public function getMatchingAnimals()
     {
         // sanitise the form input
-        $searchTerm = filter_var($_GET['searchTerm'], FILTER_SANITIZE_STRING);
+        $searchTerm = $this->input->get('searchTerm');
         // query the model and encode the response as JSON
-        echo json_encode($this->AnimalModel->getMatchingAnimals($searchTerm));
+        $result = json_encode($this->AnimalModel->getMatchingAnimals($searchTerm));
+        echo $result;
+        return $result;
     }
 
     /**
@@ -59,7 +63,9 @@ class AnimalWebService extends CI_Controller
      */
     public function getByCountry()
     {
-        $country = ($_GET['country']);
-        echo json_encode($this->AnimalModel->getByCountry($country));
+        $country = $this->input->get('country');
+        $result = json_encode($this->AnimalModel->getByCountry($country));
+        echo $result;
+        return $result;
     }
 }
