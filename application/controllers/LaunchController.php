@@ -15,7 +15,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
  *
  * This is the Main Controller for the Application, which provides the launch view.
  */
-class Launch extends CI_Controller
+class LaunchController extends CI_Controller
 {
 
     /**
@@ -30,7 +30,7 @@ class Launch extends CI_Controller
         $this->load->helper('form');
 
         // load model
-        $this->load->model('AnimalModel');
+        $this->load->model('LaunchModel');
     }
 
     /**
@@ -40,8 +40,9 @@ class Launch extends CI_Controller
      */
     public function index()
     {
-        // get the list of distinct countries to populate the dropdown in the view
-        $data['countries'] = $this->AnimalModel->getDistinctCountries();
+        // get the list of countries and species to populate the dropdown in the view
+        $data['countries'] = $this->LaunchModel->getAllCountries();
+        $data['allSpecies'] = $this->LaunchModel->getAllSpecies();
         $this->load->view('launch_view', $data);
     }
 }

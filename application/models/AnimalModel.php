@@ -25,7 +25,7 @@ class AnimalModel extends CI_Model
     }
 
     /**
-     * Query the Database to get all animals.
+     * Query the Database to get all data from the animals.
      *
      * @return array
      */
@@ -36,44 +36,47 @@ class AnimalModel extends CI_Model
     }
 
     /**
-     * Query the Database to get all animals where "breed" or "name" match the search term.
+     * Query the Database to get all animals where the animal name or description match the search term.
      *
      * @param string $searchTerm the term to match.
      * @return array
      */
     public function getMatchingAnimals($searchTerm)
     {
-        $this->db->like('breed', $searchTerm);
-        $this->db->or_like('name', $searchTerm);
+        $term = $this->db->escape_like_str($searchTerm);
+        $this->db->like('name', $searchTerm);
         $query = $this->db->get('animals');
         return $query->result();
     }
 
     /**
-     * Query the database to get all animals from the given country.
+     * Query the database to get all animals of a given species.
+     *
+     * @param string $country
+     * @return array
+     */
+    public function getBySpecies($species)
+    {
+        $this->db->where('species_id', $species);
+        $query = $this->db->get('animals');
+        return $query->result();
+    }
+
+    /**
+     * Query the database to get data from species from the given country.
      *
      * @param string $country
      * @return array
      */
     public function getByCountry($country)
     {
-        $this->db->select('name, breed, country');
-        $this->db->where('country', $country);
-        $query = $this->db->get('animals');
+        $this->db->select('species.name, species.description');
+        $this->db->from('species');
+        $this->db->join('habitats', 'species.id = habitats.species_id');
+        $this->db->where('habitats.country_id', $country);
+        $query = $this->db->get();
+        // echo $this->db->last_query();
         return $query->result();
     }
 
-    /**
-     * Query the database to get all distinct country names in the database, ordered alphabetically.
-     *
-     * @return array
-     */
-    public function getDistinctCountries()
-    {
-        $this->db->distinct();
-        $this->db->select('country');
-        $this->db->order_by('country', 'ASC');
-        $query = $this->db->get('animals');
-        return array_column($query->result_array(), 'country');
-    }
 }
