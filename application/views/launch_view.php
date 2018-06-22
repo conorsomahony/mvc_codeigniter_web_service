@@ -47,7 +47,7 @@ echo doctype('html5');
 		<!-- section - submission details  -->
 		<section>
 			<!-- use CI html helper-->
-			<?= heading('Submission Details', 2, 'class="mb1"'); ?>
+			<?= heading('Submission Details', 3, 'class="mb1"'); ?>
 			<ul>
 				<li>Author: Conor O'Mahony</li>
 				<li>Assignment: MVC Application Frameworks - Assessment 1 - CodeIgniter MVC Web Service</li>
@@ -58,10 +58,10 @@ echo doctype('html5');
 		<!-- section - assessment description  -->
 		<section>
 			<!-- use CI html helper-->
-			<?=heading('Description/Brief', 2, 'class="mb1"');?>
+			<?=heading('Description/Brief', 3, 'class="mb1"');?>
 			<ul>
 				<li>This is a web service built in PHP using the CodeIgniter framework.</li>
-				<li>The web service provides a number of endpoints, where each endpoint is accessible via a URI.</li>
+				<li>The web service provides a number of endpoints, each endpoint is accessible via a URI.</li>
 				<li>Each endpoint executes a HTTP GET request to query a MySQL database and return some data in JSON format.</li>
 				<li>The data returned describes (ficticious!) animals for adoption, e.g., the animal name, description, sex, species, etc.</li>
 				<li>This data <i>could</i> be consumed by a Version 2 of the
@@ -77,7 +77,7 @@ echo doctype('html5');
 
 		<!-- section - launch web service-->
 		<section>
-			<?=heading('Web Service Endpoints', 2);?>
+			<?=heading('Web Service Endpoints', 3);?>
 			
 			<!--  API Endpoint -->
 			<div class="card b-accent mb2">
