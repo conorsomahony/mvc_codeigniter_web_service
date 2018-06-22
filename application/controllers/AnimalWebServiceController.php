@@ -26,6 +26,8 @@ class AnimalWebServiceController extends CI_Controller
 
         // load model
         $this->load->model('AnimalModel');
+        // for using redirect
+        $this->load->helper('url');
     }
 
     /**
@@ -46,10 +48,10 @@ class AnimalWebServiceController extends CI_Controller
      *
      * @return JSON encoded data matching the query.
      */
-    public function getBySpecies($species)
+    public function getAnimalsBySpecies($species)
     {
         // query the model and encode the response as JSON
-        $result = json_encode($this->AnimalModel->getBySpecies($species));
+        $result = json_encode($this->AnimalModel->getAnimalsBySpecies($species));
         echo $result;
         return $result;
     }
@@ -59,57 +61,36 @@ class AnimalWebServiceController extends CI_Controller
      *
      * @return JSON encoded data matching the query.
      */
-    public function getByCountry($country)
+    public function getSpeciesByCountry($country)
     {
         // query the model and encode the response as JSON
-        $result = json_encode($this->AnimalModel->getByCountry($country));
+        $result = json_encode($this->AnimalModel->getSpeciesByCountry($country));
         echo $result;
         return $result;
     }
 
     /**
-     * Web Service API Endpoint: Search for animal data using search term
-     *
-     * @return JSON encoded data matching the query.
-     */
-    public function getMatchingAnimals($searchTerm)
-    {
-        // query the model and encode the response as JSON
-        $result = json_encode($this->AnimalModel->getMatchingAnimals($searchTerm));
-        echo $result;
-        return $result;
-    }
-
-
-    /**
-     * Helper method for calling getMatchingAnimals endpoint via the Launch page form.
-     */
-    public function getMatchingAnimalsHelper()
-    {
-        // form input
-        $searchTerm = $this->input->get('searchTerm');
-        return $this->getMatchingAnimals($searchTerm);
-    }
-
-    /**
-     * Helper method for calling getBySpecies endpoint via the Launch page form.
+     * This is just a helper method for calling getAnimalsBySpecies endpoint via the Launch view form.
      *
      * @return void
      */
-    public function getBySpeciesHelper()
+    public function getAnimalsBySpeciesHelper()
     {
         // form input
         $species = $this->input->get('species');
-        return $this->getBySpecies($species);
+        //redirect to API
+        redirect('/AnimalWebServiceController/getAnimalsBySpecies/'.$species);
+
     }
 
     /**
-     * Helper method for calling getByCountry endpoint via the Launch page form.
+     * This is just a helper method for calling getSpeciesByCountry endpoint via the Launch view form.
      */
-    public function getByCountryHelper()
+    public function getSpeciesByCountryHelper()
     {
         // form input
         $country = $this->input->get('country');
-        return $this->getByCountry($country);
+        // redirect to API
+        redirect('/AnimalWebServiceController/getSpeciesByCountry/'.$country);
     }
 }

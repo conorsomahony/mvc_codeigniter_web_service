@@ -36,26 +36,12 @@ class AnimalModel extends CI_Model
     }
 
     /**
-     * Query the Database to get all animals where the animal name or description match the search term.
-     *
-     * @param string $searchTerm the term to match.
-     * @return array
-     */
-    public function getMatchingAnimals($searchTerm)
-    {
-        $term = $this->db->escape_like_str($searchTerm);
-        $this->db->like('name', $searchTerm);
-        $query = $this->db->get('animals');
-        return $query->result();
-    }
-
-    /**
      * Query the database to get all animals of a given species.
      *
      * @param string $country
      * @return array
      */
-    public function getBySpecies($species)
+    public function getAnimalsBySpecies($species)
     {
         $this->db->where('species_id', $species);
         $query = $this->db->get('animals');
@@ -63,12 +49,12 @@ class AnimalModel extends CI_Model
     }
 
     /**
-     * Query the database to get data from species from the given country.
+     * Query the database to get species data from species from the given country.
      *
      * @param string $country
      * @return array
      */
-    public function getByCountry($country)
+    public function getSpeciesByCountry($country)
     {
         $this->db->select('species.name, species.description');
         $this->db->from('species');
