@@ -94,7 +94,7 @@ echo doctype('html5');
 				</ul>
 				<h5 class="mt3">Example Usage 2:</h5>
 				<!-- using CI form helper - specify method as HTTP GET -->
-				<?=form_open('/AnimalWebServiceController/getAnimalsBySpeciesHelper', array('method' => 'get'))?>
+				<?=form_open('/LaunchController/getAnimalsBySpeciesHelper', array('method' => 'get'))?>
 					<div>
 						<input type="submit" value="Get by Species" class="pill btn bg-info b-info white mt2 mb2 mr2">
 						<!-- Here we use the $allSpecies data passed in by the Launch Controller to populate the dropdown -->
@@ -129,7 +129,7 @@ foreach ($allSpecies as $species) {
 				</ul>
 				<h5 class="mt3">Example Usage 2:</h5>
 				<!-- using CI form helper - specify method as HTTP GET -->
-				<?=form_open('/AnimalWebServiceController/getSpeciesByCountryHelper', array('method' => 'get'))?>
+				<?=form_open('/LaunchController/getSpeciesByCountryHelper', array('method' => 'get'))?>
 					<div>
 						<input type="submit" value="Get by Country" class="pill btn bg-info b-info white mt2 mb2 mr2">
 						<!-- Here we use the $countries data passed in by the Launch Controller to populate the dropdown -->

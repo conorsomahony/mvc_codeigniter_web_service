@@ -26,8 +26,6 @@ class AnimalWebServiceController extends CI_Controller
 
         // load model
         $this->load->model('AnimalModel');
-        // for using redirect
-        $this->load->helper('url');
     }
 
     /**
@@ -67,30 +65,5 @@ class AnimalWebServiceController extends CI_Controller
         $result = json_encode($this->AnimalModel->getSpeciesByCountry($country));
         echo $result;
         return $result;
-    }
-
-    /**
-     * This is just a helper method for calling getAnimalsBySpecies endpoint via the Launch view form.
-     *
-     * @return void
-     */
-    public function getAnimalsBySpeciesHelper()
-    {
-        // form input
-        $species = $this->input->get('species');
-        //redirect to API
-        redirect('/AnimalWebServiceController/getAnimalsBySpecies/'.$species);
-
-    }
-
-    /**
-     * This is just a helper method for calling getSpeciesByCountry endpoint via the Launch view form.
-     */
-    public function getSpeciesByCountryHelper()
-    {
-        // form input
-        $country = $this->input->get('country');
-        // redirect to API
-        redirect('/AnimalWebServiceController/getSpeciesByCountry/'.$country);
     }
 }

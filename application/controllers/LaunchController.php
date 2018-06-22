@@ -13,7 +13,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 /**
  * Launch Controller.
  *
- * This is the Main Controller for the Application, which provides the launch view.
+ * This is the Front End Controller for the Application, which provides the launch view.
  */
 class LaunchController extends CI_Controller
 {
@@ -24,6 +24,7 @@ class LaunchController extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        
         // load helpers for use in the launch view
         $this->load->helper('html');
         $this->load->helper('url');
@@ -44,5 +45,30 @@ class LaunchController extends CI_Controller
         $data['countries'] = $this->LaunchModel->getAllCountries();
         $data['allSpecies'] = $this->LaunchModel->getAllSpecies();
         $this->load->view('launch_view', $data);
+    }
+
+    /**
+     * This is just a helper method for calling getAnimalsBySpecies endpoint via the Launch view form.
+     *
+     * @return void
+     */
+    public function getAnimalsBySpeciesHelper()
+    {
+        // form input
+        $species = $this->input->get('species');
+        //redirect to API
+        redirect('/AnimalWebServiceController/getAnimalsBySpecies/' . $species);
+
+    }
+
+    /**
+     * This is just a helper method for calling getSpeciesByCountry endpoint via the Launch view form.
+     */
+    public function getSpeciesByCountryHelper()
+    {
+        // form input
+        $country = $this->input->get('country');
+        // redirect to API
+        redirect('/AnimalWebServiceController/getSpeciesByCountry/' . $country);
     }
 }
