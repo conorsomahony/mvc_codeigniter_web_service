@@ -170,7 +170,7 @@ foreach ($countries as $country) {
 		<section>
 			<?=heading('Additional Information and References', 3, 'class="mb1"');?>
 			<ul>
-				<li>CSS framework used for styling is lit.css - see
+				<li>CSS framework used for styling this launch page is lit.css - see
 					<a class="info" href="https://ajusa.github.io/lit/docs/lit.html">here.</a>
 				</li>
 			</ul>
