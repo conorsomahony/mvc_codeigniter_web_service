@@ -7,7 +7,7 @@
  * Student ID: STU-00001490
  * Date: 2018/06/15
  */
-
+header('Access-Control-Allow-Origin: *');
 defined('BASEPATH') or exit('No direct script access allowed');
 
 /**
@@ -37,8 +37,23 @@ class AnimalWebServiceController extends CI_Controller
     {
         // query the model and encode the response as JSON
         $result = json_encode($this->AnimalModel->getAllAnimalData());
-        echo $result;
-        return $result;
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output($result);
+    }
+
+    /**
+     * Web Service API Endpoint: Get all animal data with additional species data.
+     *
+     * @return JSON encoded data matching the query.
+     */
+    public function getAllAnimalSpeciesData()
+    {
+        // query the model and encode the response as JSON
+        $result = json_encode($this->AnimalModel->getAllAnimalSpeciesData());
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output($result);
     }
 
     /**

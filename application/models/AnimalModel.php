@@ -25,13 +25,25 @@ class AnimalModel extends CI_Model
     }
 
     /**
-     * Query the Database to get all data from the animals.
+     * Query the Database to get all data from the animals table.
      *
      * @return array
      */
     public function getAllAnimalData()
     {
         $query = $this->db->get('animals');
+        return $query->result();
+    }
+
+    /**
+     * Query the Database to get all data from the animals table with additional species data.
+     *
+     * @return array
+     */
+    public function getAllAnimalSpeciesData()
+    {
+        $sql = "SELECT animals.id, animals.name, animals.description, animals.sex, animals.image, species.name as species_name FROM `animals`, `species` WHERE animals.species_id = species.id ORDER BY animals.name ASC";
+        $query = $this->db->query($sql);
         return $query->result();
     }
 
