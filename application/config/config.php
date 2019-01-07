@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 //$config['base_url'] = 'http://localhost/src/mvc/assessment_1/';
-$config['base_url'] = 'https://www.conorsomahony.net/sites/mvc-web-service/';
+//$config['base_url'] = 'https://www.conorsomahony.net/sites/mvc-web-service/';
 
 /*
 |--------------------------------------------------------------------------
